@@ -1,0 +1,79 @@
+.pill-nav{
+    margin-top:20px;
+    margin-bottom:30px;
+    @extend %clearfix;
+}
+
+.arrow{ @extend %arrow; }
+
+.pill{
+    display:block;
+    height:40px;
+    background:$red;
+    text-align:center;
+    color:white;
+    @extend %futuraBook;
+    font-size:15px;
+    padding:10px;
+    &:hover{
+        color:white;
+    }
+    &.inactive{
+        background-color:$lightRed;
+    }
+}
+
+.narrow{
+    margin-left:10%;
+    margin-right:10%;
+}
+
+.paginate-indicators{
+    @extend .carousel-indicators;
+}
+
+.row-fluid{
+    @extend %clearfix;
+}
+
+.feature-img{
+    width:100%;
+}
+
+.caption{
+    @include ltrLinear(black,transparent);
+    padding:5px;
+    h2, h3{
+        color:white;
+    }
+    h2{
+        margin-top:0;
+    }
+}
+
+.close{
+    @include transition(0.5s);
+    position:absolute;
+    top:10px;
+    right:10px;
+    font-size:25px;
+    color:white;
+    @include text-shadow(none);
+    @include opacity(1);
+    outline:none;
+    &:hover{
+        @include transform(scale(1.2));
+        color:white;
+    }
+    &:active, &:focus{
+        color:white;
+        @include opacity(1);
+    }
+}
+
+.paginate-indicators li{
+    margin:1px 2px;
+    &.active{
+        margin:0 2px;
+    }
+}

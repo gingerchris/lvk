@@ -1,0 +1,101 @@
+@mixin letter-spacing($spacing) {
+    letter-spacing: $spacing;
+ }
+
+ @mixin placeholder(){
+    &::-webkit-input-placeholder {
+       @content;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+       @content;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+       @content;
+    }
+
+    &:-ms-input-placeholder {
+       @content;
+    }
+ }
+
+ @mixin ltrLinear($left,$right){
+    @include background-image(linear-gradient(left,$left,$right));
+    -pie-background: linear-gradient(360deg, $left, $right);
+    @extend %pie;
+ }
+
+%clearfix {
+    zoom:1;
+    &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+%fillImg{
+    max-width:100%;
+    min-width:100%;
+    min-height:100%;
+}
+
+%inlineUL{
+    list-style-type: none;
+    text-align:center;
+    li{
+        list-style-type: none;
+        display:inline-block;
+    }
+}
+
+%futuraBook{
+    font-family:'L Futura W01';
+    font-weight:100;
+}
+
+%FuturaStdCondensed{
+    font-family:'L Futura W01';
+    font-weight:300;
+}
+
+%futuraStretch{
+    @extend %FuturaStdCondensed;
+    @include letter-spacing(6px);
+    text-transform:uppercase;
+}
+
+%arrow {
+    position: relative;
+    &:after{
+        @include transition(0.5s);
+        top: 75%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(0, 0, 0, 0);
+        border-top-color: $red;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+    &.active:after, &:hover:after{
+        top: 100%;
+        left: 50%;
+    }
+    &.inactive:after{
+        border-top-color:$lightRed;
+    }
+}
+
+%pie{
+    behavior: url(#{$base}PIE.htc);
+}

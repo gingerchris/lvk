@@ -1,0 +1,33 @@
+<script id="search-result" type="text/html">
+<div class='search-result' data-image='{{img}}'>
+    <div class='caption black-fade'>
+        <h1>{{name}}</h1>
+        <h2>Cooking Time {{time}}</h2>
+        <div class="red-fade"></div>
+    </div>
+</div>
+</script>
+
+<script id="no-result" type="text/html">
+<div class='search-result'>
+    <div class='caption black-fade'>
+        <h1>No Results</h1>
+        <h2>Try another search term or click here to find a random recipe.</h2>
+        <div class="red-fade"></div>
+    </div>
+</div>
+</script>
+
+<script id="no-term" type="text/html">
+<div class='search-result' data-image='{{img}}'>
+    <div class='caption black-fade'>
+        <h1>Keep Typing</h1>
+        <h2>Please enter at least three characters to search.</h2>
+        <div class="red-fade"></div>
+    </div>
+</div>
+</script>
+
+<script id="pager" type="text/html">
+    <li data-target="#search-results" data-page="{{page}}" {{#active}}class="active"{{/active}}></li>
+</script>
