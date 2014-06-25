@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Blog extends Ralph_Controller {
+class Blog extends My_Controller {
 	public function __construct() {
 	    //initialise base
 	    parent::__construct();

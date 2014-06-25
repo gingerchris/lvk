@@ -107,7 +107,7 @@ module.exports = function (grunt) {
                     style: 'expanded',
                     compass: 'true',
                     lineNumbers: true,
-                    require: ['./dev/sass/includes/url64.rb','bootstrap-sass']
+                    require: ['bootstrap-sass']
                 },
                 expand: true,
                 cwd: 'dev/sass/',
@@ -115,38 +115,6 @@ module.exports = function (grunt) {
                 files: 'dev/**/*.scss',
                 dest: './css/',
                 ext: '.css'
-            }
-        },
-
-        // `optimizationLevel` is only applied to PNG files (not JPG)
-        imagemin: {
-            png: {
-                options: {
-                    optimizationLevel: 7
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'dev/images/',
-                        src: ['**/*.png'],
-                        dest: 'images/',
-                        ext: '.png'
-                    }
-                ]
-            },
-            jpg: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'dev/images/',
-                        src: ['**/*.jpg'],
-                        dest: 'images/',
-                        ext: '.jpg'
-                    }
-                ]
             }
         },
 
@@ -181,11 +149,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask("dev", ["concurrent:dev"]);
 
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.registerTask('imagemin', ['imagemin']);
-
     // Release Task
-    grunt.registerTask('release', ['jshint', 'uglify:dist', 'sass', 'imagemin']);
+    grunt.registerTask('release', ['jshint', 'uglify:dist', 'sass']);
 
     /*
         Notes:

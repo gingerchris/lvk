@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends My_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,7 +22,7 @@ class Welcome extends CI_Controller {
 	    parent::__construct();
 	    $this->data = array();
 	    $this->data['meta'] = array();
-	    $this->load->helper('RALPH_display_helper');
+	    $this->load->helper('MY_display_helper');
 	}
 
 	public function index()
@@ -30,41 +30,23 @@ class Welcome extends CI_Controller {
 
 		$this->load->model('blog_model');
 
-		$this->data['carousel'] = $this->blog_model->get_posts(0,3);
+		$this->data['gallery'] = $this->blog_model->get_posts(0,3,0);
+		$this->data['blog'] = array_merge($this->blog_model->get_posts(0,1),$this->blog_model->get_posts(0,-1));
 
-		$this->load->view('components/head',$this->data);
-		$this->load->view('components/header',$this->data);
+		$this->data['about'] = array_slice($this->blog_model->get_posts(0,2),0,1);
 
-		$this->load->view('components/carousel',$this->data);
-		$this->load->view('components/small-features',$this->data);
+		$this->data['menu'] = $this->blog_model->get_posts(0,4,0);
 
-		$this->load->view('components/footer',$this->data);
-		$this->load->view('components/foot',$this->data);
+
+		$this->load->vars($this->data);
+
+		$this->load->view('home');
 	}
 
-	public function malaysia()
-	{
+	public function posts($page){
 
-		$this->load->view('components/head',$this->data);
-		$this->load->view('components/header',$this->data);
-
-		$this->load->view('malaysia',$this->data);
-
-		$this->load->view('components/footer',$this->data);
-		$this->load->view('components/foot',$this->data);
 	}
 
-	public function contact()
-	{
-
-		$this->load->view('components/head',$this->data);
-		$this->load->view('components/header',$this->data);
-
-		$this->load->view('contact',$this->data);
-
-		$this->load->view('components/footer',$this->data);
-		$this->load->view('components/foot',$this->data);
-	}
 }
 
 /* End of file welcome.php */

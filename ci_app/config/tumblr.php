@@ -7,8 +7,8 @@ $config['callback_url']					= 'controller/method';
 $config['auth_callback']				= 'controller/method';
 
 $config['post_categories']              = array(
-                                                1 => 'mk_hero',
-                                                //2 => 'mk_competition',
-                                                3 => 'mk_image',
-                                                //4 => 'mk_events'
+                                                1 => 'sticky',
+                                                2 => 'about',
+                                                3 => 'gallery',
+                                                4 => 'menu'
                                             );
