@@ -4,7 +4,7 @@
 // it handles basic setup, session check and can
 // provide some useful common functions
 
-class Ralph_Controller extends CI_Controller {
+class My_Controller extends CI_Controller {
 
     public function __construct() {
         //initialise base
@@ -14,7 +14,7 @@ class Ralph_Controller extends CI_Controller {
 
         $this->data['ogTags'] = array(
         	'og:image'		=> base_url('frontend/image/fb.jpg'),
-        	'og:title'		=> '',
+        	'og:title'		=> $this->config->item('site_title'),
         	'og:url'		=> base_url(),
         	'og:description'=> '',
         	'og:site_name'	=> '',
@@ -23,7 +23,7 @@ class Ralph_Controller extends CI_Controller {
         );
 
         $this->data['meta'] = array(
-        	'title'			=> '',
+        	'title'			=> $this->config->item('site_title'),
         	'description'	=> '',
         	'fbshare'		=> '',
         	'tweet'			=> '',
