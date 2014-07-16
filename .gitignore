@@ -8,6 +8,5 @@
 ehthumbs.db
 Thumbs.db
 
-
-frontend/.sass-cache
-frontend/node_modules
+node_modules
+.sass-cache

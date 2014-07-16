@@ -1,0 +1,59 @@
+///links
+a {
+  @include transition (all .2s ease-out);
+
+  color: $brand-orange;
+  text-decoration: none;
+  border-bottom: 1px solid $brand-orange;
+  &:hover {
+    color: darken($brand-orange, 10%);
+    border-color: darken($brand-orange, 10%);
+  }
+}
+
+.more {
+  border: 1px solid $brand-orange;
+  color: $white;
+  background: $brand-orange;
+  border-radius: 20px;
+  padding: 0 12px;
+  height: 34px;
+  line-height: 33px;
+  display: inline-block;
+  margin-top: 1em;
+  font-size: 20px;
+  &:hover {
+    background: $white;
+    color: darken($brand-orange, 10%);
+    border-color: darken($brand-orange, 20%);
+  }
+}
+
+.button {
+  @include transition (all .2s ease-out);
+  @extend .more;
+  font-family: 'Arapey', serif;;
+  background-image: none;
+  background-color: transparent;
+  border: 1px solid $brand-orange;
+  color: $white;
+  background: $brand-orange;
+    &:hover {
+    cursor: pointer;
+    background: $white;
+    color: darken($brand-orange, 10%);
+    border-color: darken($brand-orange, 20%);
+    }
+}
+
+.social-links {
+  padding: 0 0 60px 0;
+  > li {
+    font-size: 36px;
+    display: inline-block;
+    margin: 0 20px;
+    a {
+          border-bottom: none;
+    }
+  }
+}
