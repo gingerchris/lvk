@@ -1,0 +1,20 @@
+/* very basic type styles*/
+body {
+	font-size: $base-font-size;
+	line-height: $base-line-height
+}
+h1 {
+  font-size: $h1-font-size;
+  line-height: $header-line-height;
+  margin-bottom: 1.5em;
+}
+
+h2 {
+  font-size: $h4-font-size;
+  line-height: $header-line-height;
+  margin-bottom: 1.5em;
+}
+
+p {
+  margin-bottom: 1.5em;
+}

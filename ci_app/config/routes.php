@@ -41,16 +41,6 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
-/*Frontend Routes */
-$route['recipe/(:any)'] = "recipe/view/$1";
-$route['recipes'] = "recipe/index";
-$route['restaurants'] = "restaurants/index";
-$route['malaysia'] = "welcome/malaysia";
-$route['contact'] = "welcome/contact";
-
-
-$route['members'] = "members/index";
-
 /* Admin Routes */
 $route['admin/blog'] = "admin/blog";
 $route['admin/blog/(:num)'] = "admin/blog/index/$1/";

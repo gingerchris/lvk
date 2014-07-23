@@ -1,0 +1,71 @@
+.nav {
+  @include clearfix;
+  display: inline-block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  min-width: 320px;
+  font-size: $h4-font-size;
+  height: 200px;
+  @include background-image(linear-gradient(transparent 0,  $white 70% ));
+
+
+   ul {
+      overflow: hidden;
+      width: 100%;
+      padding: 20px 0 2em;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      top: 100px;
+      @media (min-width: 700px) {
+       top: -10px;
+      }
+    > li {
+         display: inline-block;
+         list-style: none;
+         padding: 10px 5px;
+         position: relative;
+         top: 0;
+         @media (min-width: 401px) {
+          padding: 10px 20px;
+         }
+         @media (min-width: 700px) {
+         top: -35px;
+         padding: 10px 20px;
+        }
+        > a {
+            color: $brand-orange;
+            padding-bottom: .3em;
+            border: none;
+            &:hover {
+              opacity: .8;
+            }
+        }
+
+        &.logo {
+          top: -10px;
+          margin: 0 10px;
+          padding-top: 20px;
+          display: none;
+          @media (min-width: 700px) {
+            display: inline-block;
+          }
+            img {
+              height: auto;
+              width: 200px;
+            }
+          &.active > a {
+            border-bottom: none;
+          }
+          }
+
+        &.active > a {
+         border-bottom: 2px solid $brand-orange;
+        }
+      }
+   }
+}
+

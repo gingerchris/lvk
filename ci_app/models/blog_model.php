@@ -12,15 +12,20 @@ class Blog_model extends CI_model {
 		return $this->get_posts(0,1);
 	}
 
-	public function get_posts($offset=0, $category=0)
+	public function get_posts($offset=0, $category=0, $limit=1)
 	{
 		//select all fields and if the post is sticky or not (to order sticky posts first)
 		$this->db->select('*,CASE WHEN post_category=1 THEN 1 ELSE 0 END as sticky', false);
 		if($category>0){
 			$this->db->where('post_category',$category);
 		}
+		if($category == -1){
+			$this->db->where('post_category',0);
+		}
 
-		$this->db->limit($this->config->item('display_posts'),$offset);
+		if($limit=1){
+			$this->db->limit($this->config->item('display_posts'),$offset);
+		}
 		$this->db->order_by('sticky','DESC');
 		$this->db->order_by('post_id', 'DESC');
 		$query = $this->db->get('blog');
@@ -47,7 +52,6 @@ class Blog_model extends CI_model {
 	{
 		//Fetch the latest posts from Tumblr
 		$posts = $this->tumblr->posts($this->tumblr->tumblr_url);
-		var_dump($posts);
 		$insertPosts	= array();
 		$updatePosts	= array();
 		$insertTags		= array();

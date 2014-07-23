@@ -1,0 +1,117 @@
+/// Generic
+%left {
+  float: left;
+}
+%right {
+  float: right;
+}
+%t-center {
+  text-align: center;
+}
+%t-left {
+  text-align: left;
+}
+
+// Cols
+%container {
+  @include box-sizing(border-box);
+  @include clearfix;
+}
+%col50 {
+  width: 50%
+}
+%col40 {
+  width: 40%;
+}
+%col60 {
+  width:60%;
+}
+%col100 {
+  width: 100%;
+}
+
+//  This stuff controls the layout
+#superContainer {
+    height: 100%;
+    position: relative;
+
+    /* Touch detection for Windows 8 */
+    -ms-touch-action: none;
+}
+.section {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.slide {
+    float: left;
+}
+.slide, .slidesContainer {
+    height: 100%;
+    display: block;
+}
+.slides {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.section.table, .slide.table {
+    display: table;
+    width: 100%;
+}
+.tableCell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+.slidesContainer {
+    float: left;
+    position: relative;
+}
+.easing {
+    -webkit-transition: all 0.7s ease-out;
+    -moz-transition: all 0.7s ease-out;
+    -o-transition: all 0.7s ease-out;
+    transition: all 0.7s ease-out;
+}
+
+/// Content blocks
+.content {
+  padding: 0 0 5em 0;
+  margin: 0 auto;
+  width: 90%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  @media (min-width: 600px) {
+    width: 65%;
+  }
+  @media (min-width: 800px) {
+    width: 55%;
+  }
+  &.first, &.last {
+    border: none;
+  }
+  section {
+    @include clearfix;
+    @extend %container;
+    text-transform: none;
+    padding-bottom: 2em 0;
+    > div {
+      @include box-sizing(border-box);
+      @extend %t-left;
+      padding-bottom: 2em;
+      @extend %col100;
+      padding: 0 2%;
+    }
+    .cta-container {
+      @include clearfix;
+      text-align: center;
+    }
+
+  }
+}

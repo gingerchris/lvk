@@ -1,5 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+
+$config['site_title'] = "Little Vanilla Kitchen";
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -106,7 +108,7 @@ $config['enable_hooks'] = FALSE;
 | http://codeigniter.com/user_guide/general/creating_libraries.html
 |
 */
-$config['subclass_prefix'] = 'RALPH_';
+$config['subclass_prefix'] = 'MY_';
 
 
 /*
