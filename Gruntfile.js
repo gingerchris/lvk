@@ -47,7 +47,7 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 options: {
-                    style: 'expanded',
+                    style: 'compressed',
                     compass: 'true',
                     sourcemap: true,
                     lineNumbers: true,
@@ -55,6 +55,17 @@ module.exports = function (grunt) {
                 },
                 files:{
                     'assets_min/css/admin.css' : 'assets/sass/admin.scss',
+                    'assets_min/css/styles.css' : 'assets/sass/styles.scss'
+                }
+            },
+            frontend: {
+                options: {
+                    style: 'expanded',
+                    compass: 'true',
+                    sourcemap: true,
+                    lineNumbers: true,
+                },
+                files:{
                     'assets_min/css/styles.css' : 'assets/sass/styles.scss'
                 }
             }
@@ -67,8 +78,8 @@ module.exports = function (grunt) {
                 tasks: ['jshint', 'uglify']
             },
             css : {
-                files: ['<%= sass.dist.files %>'],
-                tasks: 'sass'
+                files: ['<%= sass.frontend.files %>'],
+                tasks: 'sass:frontend'
             }
         },
 
@@ -87,12 +98,12 @@ module.exports = function (grunt) {
     });
 
     // Default Task
-    grunt.registerTask('default', ['jshint', 'uglify', 'sass']);
+    grunt.registerTask('default', ['uglify', 'sass:frontend']);
 
     grunt.registerTask("dev", ["concurrent:dev"]);
 
     // Release Task
-    grunt.registerTask('release', ['jshint', 'uglify:dist', 'sass']);
+    grunt.registerTask('release', ['uglify', 'sass:dist']);
 
     /*
         Notes:
