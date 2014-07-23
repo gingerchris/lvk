@@ -33,7 +33,8 @@ class Welcome extends My_Controller {
 		$this->data['gallery'] = $this->blog_model->get_posts(0,3,0);
 		$this->data['blog'] = array_merge($this->blog_model->get_posts(0,1),$this->blog_model->get_posts(0,-1));
 
-		$this->data['about'] = array_slice($this->blog_model->get_posts(0,2),0,1);
+		$a = array_slice($this->blog_model->get_posts(0,2),0,1);
+		$this->data['about'] = $a[0];
 
 		$this->data['menu'] = $this->blog_model->get_posts(0,4,0);
 

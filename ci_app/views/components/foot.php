@@ -1,6 +1,6 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>
-            window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>');
+            window.jQuery || document.write('<script src="<?php echo base_url('assets_min/js/vendor/jquery-1.10.2.min.js'); ?>"><\/script>');
             (function(d, s, id) {
               var js, fjs = d.getElementsByTagName(s)[0];
               if (d.getElementById(id)) return;
@@ -10,7 +10,7 @@
             }(document, 'script', 'facebook-jssdk'));
         </script>
         <?php if(isset($admin)): ?>
-            <script src="<?php echo base_url('frontend/js/admin.js'); ?>"></script>
+            <script src="<?php echo base_url('assets_min/js/admin.js'); ?>"></script>
         <?php else: ?>
             <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX3ZiPumONOy59nle-23F9iGyHdqfWABI&sensor=false&libraries=places"></script>
             <script>
@@ -19,7 +19,7 @@
                     var <?php echo $k; ?> = <?php echo json_encode($v); ?>;
             <?php endforeach; endif; ?>
             </script>
-            <script src="<?php echo base_url('frontend/js/frontend.js'); ?>"></script>
+            <script src="<?php echo base_url('assets_min/js/frontend.js'); ?>"></script>
         <?php endif; ?>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -1,0 +1,99 @@
+@import "frontend/_bourbon",
+        "frontend/_reset",
+        "frontend/_variables";
+@import "frontend/modules/_layout",
+        "frontend/modules/_form",
+        "frontend/modules/_nav",
+        "frontend/modules/_type",
+        "frontend/modules/_links",
+        "frontend/modules/_gallery";
+
+
+html {
+    font-family: $base-font-family;
+    color: $brown;
+    min-width: 320px;
+}
+body {
+   background-image: url(../img/bg-5.png);
+   background-color: $white;
+   margin: 0;
+   padding: 0;
+   overflow:hidden;
+   -webkit-tap-highlight-color: rgba(0,0,0,0);
+   text-align: center;
+}
+
+//Postcard style page hero image
+ .hero-image {
+  background-image: url(../slideshow-images/1.jpg);
+  background-size: cover;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 90%;
+  margin: 0 auto;
+  border: none;
+  position: relative;
+  top: -80px;
+  &::before {
+    border: none;
+    content: "";
+  }
+  @media (min-width: 700px) {
+    width: 80%;
+    border: 10px solid $white;
+    top: -30px;
+    &::before {
+      border: 2px solid rgba($white, .6);
+      content: "";
+      position: absolute;
+      top: 30px;
+      bottom: 30px;
+      left: 30px;
+      right: 30px;
+    }
+  }
+ }
+
+//intro line as part of postcard
+ .intro-box {
+  text-align: center;
+  position: relative;
+  z-index: 10; 
+  top: 36px; 
+
+  .strapline {
+    display: inline-block;
+    color: $brand-orange;
+    font-size: $h2-font-size;
+    padding: 8px 20px 10px;
+    margin-bottom: 0;
+    font-style: italic;
+    text-transform: capitalize;
+    background-color: $white;
+
+  }
+ }
+
+// layouts for section headings
+.section {
+  .heading {
+    margin: 1em 0 1em;
+    color: $brand-orange;
+  }
+  .sub-heading {
+    margin-bottom: 3em;
+    font-style: italic;
+  }
+}
+
+// blog hero image
+.blog-hero{
+   width: 100%;
+   height: auto;
+   margin-bottom: 2em;
+}
+
+
+

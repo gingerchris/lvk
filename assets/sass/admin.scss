@@ -1,0 +1,27 @@
+// customize bootstrap variables here:
+@import "compass";
+@import "admin/variables";
+@import "bootstrap";
+
+
+.btn{
+	@include transition(0.5s);
+}
+
+.panel-heading{
+    @include transition(1.5s);
+}
+
+.clearfix{
+    h3{
+        float:left;
+    }
+}
+
+.panel-body.jumbotron{
+    margin-bottom:0px;
+}
+
+.panel img{
+	max-height:250px;
+}
