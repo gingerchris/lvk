@@ -308,7 +308,7 @@ a {
       border-bottom: none; }
 
 .cb-slideshow li:nth-child(1) span {
-  background-image: url(../slideshow-images/1.jpg); }
+  background-image: url(../img/1.jpg); }
 
 /*
 .cb-slideshow li:nth-child(2) span {
@@ -493,7 +493,7 @@ body {
   z-index: 100; }
 
 .hero-image {
-  background-image: url(../slideshow-images/1.jpg);
+  background-image: url(../img/hero.jpg);
   background-size: cover;
   background-position: 50% 0;
   background-repeat: no-repeat;

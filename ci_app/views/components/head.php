@@ -12,13 +12,13 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('assets_min/css/normalize.css'); ?>">
         <?php if(isset($admin)): ?>
-            <link rel="stylesheet" href="<?php echo base_url('assets/css/admin.css'); ?>">
+            <link rel="stylesheet" href="<?php echo base_url('assets_min/css/admin.css'); ?>">
         <?php else: ?>
-            <link rel="stylesheet" href="<?php echo base_url('assets/css/styles.css'); ?>">
+            <link rel="stylesheet" href="<?php echo base_url('assets_min/css/styles.css'); ?>">
         <?php endif; ?>
-        <script src="<?php echo base_url('assets/js/vendor/modernizr-2.6.2.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets_min/js/vendor/modernizr-2.6.2.min.js'); ?>"></script>
     </head>
     <body>
         <div id="fb-root"></div>

@@ -42,9 +42,7 @@
 					<h2 class="sub-heading">Little Vanilla Kitchen specialises in making delicious, beautiful cakes.</h2>
 					<section>
 						<div>
-							<p>Whether you want to surprise a loved one with some decadent cupcakes, desire a couture creation for your wedding day or need a birthday cake to remember, we have the cakes for you. Whatever your requirement, simply contact us for a friendly chat about what you need and how we can help.</p>
-							<p>At Little Vanilla Kitchen, we only source the freshest, quality ingredients to provide the most gorgeous flavoured cakes. Our motto? It may look too good to eat, but it's too delicious to resist!</p>
-							<p>Claudia Bloomfield is the cake-obsessed creator of Little Vanilla Kitchen and has been making cakes since childhood. Now, years later, after leaving behind the bright lights of London and having her own bun in the oven, Claudia balances raising a family with self-raising flour. The result is Little Vanilla Kitchen and cakes with the wow factor.</p>
+									<?php echo $about->content->body; ?>
 						</div>
 						<div class="cta-container"><a href="#" class="more">Read the FAQ's</a></div>
 					</section>
@@ -58,38 +56,12 @@
 					</div>
 					<section>
 						<div class="gallery">
+						<?php foreach ($gallery as $g): ?>
 							<div class="gallery-item">
-								<img class="gallery-image" src="<?php echo base_url(); ?>assets_min/img/1.jpg">
-								<p class="gallery-caption">Photo caption. This space currently fits around two lines of text.</p>
+								<img class="gallery-image" src="<?php echo $g->content->photos[0]->alt_sizes[2]->url; ?>">
+								<p class="gallery-caption"><?php echo strip_tags($g->content->caption); ?></p>
 							</div>
-							<div class="gallery-item">
-								<img class="gallery-image" src="<?php echo base_url(); ?>assets_min/img/2.jpg">
-								<p class="gallery-caption">Photo caption. This space currently fits around two lines of text. It could fit 3 lines at the most.</p>
-							</div>
-							<div class="gallery-item">
-								<img class="gallery-image" src="<?php echo base_url(); ?>assets_min/img/3.jpg">
-								<p class="gallery-caption">Photo caption. This space currently fits around two lines of text.</p>
-							</div>
-							<div class="gallery-item">
-								<img class="gallery-image" src="<?php echo base_url(); ?>assets_min/img/4.jpg">
-								<p class="gallery-caption">Photo caption. This space currently fits around two lines of text.</p>
-							</div>
-							<div class="gallery-item">
-								<img class="gallery-image" src="<?php echo base_url(); ?>assets_min/img/1.jpg">
-								<p class="gallery-caption">Photo caption. This space currently fits around two lines of text. It could fit 3 lines at the most.</p>
-							</div>
-							<div class="gallery-item">
-								<img class="gallery-image" src="<?php echo base_url(); ?>assets_min/img/2.jpg">
-								<p class="gallery-caption">Photo caption. This space currently fits around two lines of text. It could fit 3 lines at the most.</p>
-							</div>
-							<div class="gallery-item">
-								<img class="gallery-image" src="<?php echo base_url(); ?>assets_min/img/3.jpg">
-								<p class="gallery-caption">Photo caption. This space currently fits around two lines of text.</p>
-							</div>
-							<div class="gallery-item">
-								<img class="gallery-image" src="<?php echo base_url(); ?>assets_min/img/4.jpg">
-								<p class="gallery-caption">Photo caption. This space currently fits around two lines of text. It could fit 3 lines at the most.</p>
-							</div>
+						<?php endforeach; ?>
 						</div>
 						<div class="cta-container"><a href="#" class="more">Check Out The Menu</a></div>
 					</section>
@@ -97,24 +69,10 @@
 			</div>
 			<div class="section" id="section3">
 				<h1 class="heading">Latest from the Blog</h1>
-				<section class="content">
-					<div class="sub-heading-section">
-						<h2>BBQ Maple Syrup Cupcakes</h2>
-						<p><i>JUNE 5TH, 2014</i><p>
-						</div>
-						<section>
-							<div>
-								<img class="blog-hero" src="<?php echo base_url(); ?>assets_min/img/hero2.jpg">
-								<p>Whether you want to surprise a loved one with some decadent cupcakes, desire a couture creation for your wedding day or need a birthday cake to remember, we have the cakes for you. Whatever your requirement, simply contact us for a friendly chat about what you need and how we can help.</p>
-								<p>At Little Vanilla Kitchen, we only source the freshest, quality ingredients to provide the most gorgeous flavoured cakes. Our motto? It may look too good to eat, but it's too delicious to resist!</p>
-								<p>Claudia Bloomfield is the cake-obsessed creator of Little Vanilla Kitchen and has been making cakes since childhood. Now, years later, after leaving behind the bright lights of London and having her own bun in the oven, Claudia balances raising a family with self-raising flour. The result is Little Vanilla Kitchen and cakes with the wow factor.</p>
-								<p>At Little Vanilla Kitchen, we only source the freshest, quality ingredients to provide the most gorgeous flavoured cakes. Our motto? It may look too good to eat, but it's too delicious to resist!</p>
-								<p>Claudia Bloomfield is the cake-obsessed creator of Little Vanilla Kitchen and has been making cakes since childhood. Now, years later, after leaving behind the bright lights of London and having her own bun in the oven, Claudia balances raising a family with self-raising flour. The result is Little Vanilla Kitchen and cakes with the wow factor.</p>
-							</div>
-							<div class="cta-container"><a href="#" class="more">Read More</a></div>
-						</section>
-					</section>
-				</div>
+				<?php foreach($blog as $post){
+					$this->load->view('posts/'.$post->post_type, array('post'=>$post, 'category'=>'blog'));
+				}?>
+			</div>
 				<div class="section" id="section4">
 					<h1 class="heading">Contact</h1>
 					<section class="content last">
@@ -192,23 +150,12 @@
 
 			</div>
 		</div>
-		<h1>Blog Posts</h1>
-		<?php foreach($blog as $post){
-			$this->load->view('posts/'.$post->post_type, array('post'=>$post, 'category'=>'blog'));
-		}?>
-
-		<h1>Gallery Items</h1>
-		<?php foreach($gallery as $post){
-			$this->load->view('posts/'.$post->post_type, array('post'=>$post, 'category'=>'gallery'));
-		}?>
 
 		<h1>Menu Items</h1>
 		<?php foreach($menu as $post){
 			$this->load->view('posts/'.$post->post_type, array('post'=>$post, 'category'=>'menu'));
 		}?>
 
-		<h1>About</h1>
-		<?php $this->load->view('posts/'.$about->post_type, array('post'=>$about, 'category'=>'about')); ?>
 	</body>
 	<link href='http://fonts.googleapis.com/css?family=Arapey:400italic,400' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/vendor/jquery.js"></script>
