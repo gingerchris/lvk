@@ -54,7 +54,8 @@ module.exports = function (grunt) {
                     require: ['bootstrap-sass']
                 },
                 files:{
-                    'assets_min/css/admin.css' : 'assets/sass/admin.scss'
+                    'assets_min/css/admin.css' : 'assets/sass/admin.scss',
+                    'assets_min/css/styles.css' : 'assets/sass/styles.scss'
                 }
             }
         },

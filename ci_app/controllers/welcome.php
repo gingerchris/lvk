@@ -22,7 +22,7 @@ class Welcome extends My_Controller {
 	    parent::__construct();
 	    $this->data = array();
 	    $this->data['meta'] = array();
-	    $this->load->helper('MY_display_helper');
+	    $this->load->helper('my_display_helper');
 	}
 
 	public function index()
