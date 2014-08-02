@@ -15,7 +15,8 @@ module.exports = function (grunt) {
         uglify: {
             options: {
                 mangle: false,
-                beautify: true
+                beautify: false,
+                compress: false
             },
             static_mappings: {
                 // Because these src-dest file mappings are manually specified, every
@@ -38,7 +39,10 @@ module.exports = function (grunt) {
                         'assets/js/admin.js'],
                     'assets_min/js/frontend.js': [
                         'assets/js/vendor/jquery.js',
-                        'assets/js/vendor/*.js'
+                        'assets/js/vendor/jquery.easings.min.js',
+                        'assets/js/vendor/jquery.slimscroll.min.js',
+                        'assets/js/vendor/jquery.fullpage.min.js',
+                        'assets/js/vendor/jquery.form.js'
                     ]
                 }
             }
@@ -78,8 +82,8 @@ module.exports = function (grunt) {
                 tasks: ['jshint', 'uglify']
             },
             css : {
-                files: ['<%= sass.frontend.files %>'],
-                tasks: 'sass:frontend'
+                files: ['<%= sass.dist.files %>'],
+                tasks: 'sass:dist'
             }
         },
 

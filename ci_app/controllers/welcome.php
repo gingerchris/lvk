@@ -31,7 +31,15 @@ class Welcome extends My_Controller {
 		$this->load->model('blog_model');
 
 		$this->data['gallery'] = $this->blog_model->get_posts(0,3,0);
-		$this->data['blog'] = array_merge($this->blog_model->get_posts(0,1),$this->blog_model->get_posts(0,-1));
+
+		//get sticky posts first
+		$this->data['blog'] = $this->blog_model->get_posts(0,1);
+		//if there aren't enough stickies to fill the blog module, load enough recent posts to fill it
+		if(count($this->data['blog']) < $this->config->item('blog_count')){
+			$remain = $this->config->item('blog_count') - count($this->data['blog']);
+			$this->data['blog'] = array_merge($this->data['blog'],$this->blog_model->get_posts(0,-1,$remain));
+		}
+		
 
 		$a = array_slice($this->blog_model->get_posts(0,2),0,1);
 		$this->data['about'] = $a[0];
@@ -44,7 +52,37 @@ class Welcome extends My_Controller {
 		$this->load->view('home');
 	}
 
-	public function posts($page){
+	public function contact(){
+
+		$body = "Enquiry recieved ".date('l jS \of F Y h:i:s A');
+		$body .= "From : ".$this->input->post('name');
+		$body .= "\n Email : ".$this->input->post('email');
+		
+		if($this->input->post('tel')){
+			$body .= "\n Tel : ".$this->input->post('tel');
+		}
+
+		if($this->input->post('enquiry_type') == "enquiry"){
+			$body .= "\n Enquiry : ".$this->input->post('details');
+		}else{
+			$body .= "\n Date Required : ".$this->input->post('date_required');
+			$body .= "\n Cake Type : ".$this->input->post('cake_type');
+			$body .= "\n Quantity : ".$this->input->post('quantity');
+			$body .= "\n Additional Details : ".$this->input->post('additional_info');
+		}
+
+		$this->load->library('email');
+
+		$this->email->from('website@litlevanillakichen.co.uk', 'Website Enquiry');
+		$this->email->to('chrisdowling84@gmail.com'); 
+		$this->email->reply_to($this->input->post('email'));
+
+		$this->email->subject('New Enquiry from littlevanillakitchen.co.uk');
+		$this->email->message($body);	
+
+		$this->email->send();
+		echo $this->email->print_debugger();
+
 
 	}
 

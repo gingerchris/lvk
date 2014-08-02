@@ -12,7 +12,7 @@ class Blog_model extends CI_model {
 		return $this->get_posts(0,1);
 	}
 
-	public function get_posts($offset=0, $category=0, $limit=1)
+	public function get_posts($offset=0, $category=0, $limit=-1)
 	{
 		//select all fields and if the post is sticky or not (to order sticky posts first)
 		$this->db->select('*,CASE WHEN post_category=1 THEN 1 ELSE 0 END as sticky', false);
@@ -23,8 +23,10 @@ class Blog_model extends CI_model {
 			$this->db->where('post_category',0);
 		}
 
-		if($limit=1){
+		if($limit==-1){
 			$this->db->limit($this->config->item('display_posts'),$offset);
+		}else if($limit > 0){
+			$this->db->limit($limit,$offset);
 		}
 		$this->db->order_by('sticky','DESC');
 		$this->db->order_by('post_id', 'DESC');

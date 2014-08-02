@@ -2,6 +2,10 @@
 
 
 $config['site_title'] = "Little Vanilla Kitchen";
+
+$config['gallery_count'] = 10;
+$config['blog_count'] = 4;
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

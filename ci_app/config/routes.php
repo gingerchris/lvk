@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "welcome";
+$route['contact'] = "welcome/contact";
 $route['404_override'] = '';
 
 /* Admin Routes */

@@ -52,7 +52,7 @@
 				<h1 class="heading">Gallery</h1>
 				<section class="content">
 					<div class="sub-heading-section">
-						<h2 class="sub-heading">Sub heading for the tasty gallery</h2>
+						<h2 class="sub-heading">This gallery features a small selection of our previous designs. All our designs are bespoke so if you have an idea in mind and dont see what you are looking for please do not hesitate to contact us.</h2>
 					</div>
 					<section>
 						<div class="gallery">
@@ -72,6 +72,9 @@
 				<?php foreach($blog as $post){
 					$this->load->view('posts/'.$post->post_type, array('post'=>$post, 'category'=>'blog'));
 				}?>
+
+				<div class="cta-container"><a href="#" class="more">Read More on our Tumblr</a></div>
+
 			</div>
 				<div class="section" id="section4">
 					<h1 class="heading">Contact</h1>
@@ -83,56 +86,54 @@
 							<div>
 								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
 								<fieldset>
-									<form>
-										<p><label for="text_field">Name</label>
-											<input type="text" id="text_field"></p>
-											<p><label for="text_area">Email</label>
-												<input type="text" id="text_field"></p>
-												<p><label for="text_area">Telephone (optional)</label>
-													<input type="text" id="text_field"></p>
-										<!--textarea id="text_area"></textarea></p>
-										<p><label for="select_element">Select Element:</label>
-										<select name="select_element">
-											<optgroup label="Option Group 1">
-												<option value="1">Option 1</option>
-												<option value="2">Option 2</option>
-												<option value="3">Option 3</option>
-											</optgroup>
-											<optgroup label="Option Group 2">
-												<option value="1">Option 1</option>
-												<option value="2">Option 2</option>
-												<option value="3">Option 3</option>
-											</optgroup>
-										</select></p-->
-										<p><label for="radio_buttons">Enquiry type:</label>
+									<form action="<?php echo base_url(); ?>contact" method="POST" id="contact_form">
+										<p>
+											<label for="text_field">Name</label>
+											<input type="text" id="name" name="name" required>
+										</p>
+										<p>
+											<label for="text_area">Email</label>
+											<input type="email" id="email" name="email" required>
+										</p>
+										<p>
+											<label for="text_area">Telephone (optional)</label>
+											<input type="tel" id="tel" name="tel">
+										</p>
+										<p>
+											<label for="enquiry_type">Enquiry type:</label>
 											<label>
-												<input type="radio" class="radio" name="radio_button" value="radio_1"> General enquiry
+												<input type="radio" class="radio" name="enquiry_type" value="enquiry" checked> General enquiry
 											</label>
 											<label>
-												<input type="radio" class="radio" name="radio_button" value="radio_2"> Make an order
+												<input type="radio" class="radio" name="enquiry_type" value="order"> Make an order
 											</label>
-										<!--label>
-											<input type="radio" class="radio" name="radio_button" value="radio_3"> Radio 3
-										</label>
 										</p>
-										<p><label for="checkboxes">Checkboxes:</label>
-										<label>
-											<input type="checkbox" class="checkbox" name="checkboxes" value="check_1"> Radio 1
-										</label>
-										<label>
-											<input type="checkbox" class="checkbox" name="checkboxes" value="check_2"> Radio 2
-										</label>
-										<label>
-											<input type="checkbox" class="checkbox" name="checkboxes" value="check_3"> Radio 3
-										</label>
-										</p>
-										<p><label for="password">Password:</label>
-										<input type="password" class="password" name="password">
-										</p>
-										<p><label for="file">File Input:</label>
-										<input type="file" class="file" name="file">
-									</p-->
-									<div class="cta-container"><input class="button" type="submit" value="Send Enquiry"></p>
+										<div id="order-only" class="hidden extra-info">
+											<p>
+												<label for="date_required">Date required</label>
+												<input type="date" name="date_required" />
+											</p>
+											<p>
+												<label for="cake_type">Cake type</label>
+												<input type="text" name="cake_type" />
+											</p>
+											<p>
+												<label for="quantity">Quantity</label>
+												<input type="number" name="quantity" />
+											</p>
+											<p>
+												<label for="additional_info">Additional Details</label>
+												<input type="text" name="additional_info" placeholder="eg. colour, theme" />
+											</p>
+											<p><i>Please note no orders are final until confirmed by us via email.</i></p>
+										</div>
+										<div id="enquiry-only" class="extra-info">
+											<p>
+												<label for="details">Details of Enquiry</label>
+												<textarea name="details"></textarea>
+											</p>
+										</div>
+									<div class="cta-container"><input class="button" type="submit" value="Send Enquiry"></div>
 									</form>
 								</fieldset>
 							</div>
@@ -158,10 +159,7 @@
 
 	</body>
 	<link href='http://fonts.googleapis.com/css?family=Arapey:400italic,400' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/vendor/jquery.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/vendor/jquery.easings.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/vendor/jquery.slimscroll.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/vendor/jquery.fullPage.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets_min/js/frontend.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$('#fullpage').fullpage({
@@ -173,6 +171,16 @@
 			scrollingSpeed: 450,
 			paddingBottom: '100px'
 		});
+		$('input[type=radio][name=enquiry_type]').change(function() {
+        	$('.extra-info').addClass('hidden');
+        	$('#'+this.value+'-only').removeClass('hidden');
+    	});
+    	$('#contact_form').ajaxForm(function(){
+    		$('#contact_form').slideUp(800,function(){
+				$('html,body').animate({scrollTop: $(this).offset().top - 100}, 800);
+    			$(this).html('<h2>Thank you for your enquiry, we will contact you shortly.</h2>').slideDown(800);
+    		})
+    	})
 	});
 	</script>
 </html>

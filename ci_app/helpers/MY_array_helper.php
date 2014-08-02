@@ -51,6 +51,7 @@ if ( ! function_exists('array_to_object'))
 }
 
 
+
 // ------------------------------------------------------------------------
 /* End of file MY_array_helper.php */
 /* Location: ./application/helpers/MY_array_helper.php */
