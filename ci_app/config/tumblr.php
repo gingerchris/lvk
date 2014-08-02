@@ -10,5 +10,6 @@ $config['post_categories']              = array(
                                                 1 => 'sticky',
                                                 2 => 'about',
                                                 3 => 'gallery',
-                                                4 => 'menu'
+                                                4 => 'menu',
+                                                5 => 'faq'
                                             );

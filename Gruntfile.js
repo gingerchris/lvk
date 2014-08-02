@@ -42,7 +42,10 @@ module.exports = function (grunt) {
                         'assets/js/vendor/jquery.easings.min.js',
                         'assets/js/vendor/jquery.slimscroll.min.js',
                         'assets/js/vendor/jquery.fullpage.min.js',
-                        'assets/js/vendor/jquery.form.js'
+                        'assets/js/vendor/jquery.form.js',
+                        'assets/js/vendor/featherlight.js',
+                        'assets/js/vendor/featherlight.gallery.js',
+                        'assets/js/frontend.js'
                     ]
                 }
             }

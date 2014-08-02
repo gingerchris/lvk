@@ -40,6 +40,8 @@
 
 $route['default_controller'] = "welcome";
 $route['contact'] = "welcome/contact";
+$route['menu'] = "welcome/menu";
+$route['faq'] = "welcome/faq";
 $route['404_override'] = '';
 
 /* Admin Routes */

@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Little Vanilla Kitchen</title>
+	<title>Little Vanilla Kitchen - Bespoke Cakes and Cupcakes.</title>
+	<meta name="description" content="Little Vanilla Kitchen specialises in making delicious, beautiful cakes.">
+
+	<meta property="og:title" content="Little Vanilla Kitchen - Bespoke Cakes and Cupcakes."/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:image" content="<?php echo base_url('assets_min/img/1.jpg'); ?>"/>
+	<meta property="og:description" content="Little Vanilla Kitchen specialises in making delicious, beautiful cakes."/>
+
 	<link href="<?php echo base_url(); ?>assets_min/css/styles.css" rel="stylesheet" type="text/css" media="all"/>
 	<link href="<?php echo base_url(); ?>assets_min/css/foundation-icons.min.css" rel="stylesheet" type="text/css" media="all"/>
+
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php echo base_url('assets_min/icons'); ?>/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url('assets_min/icons'); ?>/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url('assets_min/icons'); ?>/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url('assets_min/icons'); ?>/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="<?php echo base_url('assets_min/icons'); ?>/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php echo base_url('assets_min/icons'); ?>/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="<?php echo base_url('assets_min/icons'); ?>/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?php echo base_url('assets_min/icons'); ?>/apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="<?php echo base_url('assets_min/icons'); ?>/favicon-196x196.png" sizes="196x196" />
+	<link rel="icon" type="image/png" href="<?php echo base_url('assets_min/icons'); ?>/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="<?php echo base_url('assets_min/icons'); ?>/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="<?php echo base_url('assets_min/icons'); ?>/favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="<?php echo base_url('assets_min/icons'); ?>/favicon-128.png" sizes="128x128" />
+	<meta name="application-name" content="&nbsp;"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF" />
+	<meta name="msapplication-TileImage" content="<?php echo base_url('assets_min/icons'); ?>/mstile-144x144.png" />
+	<meta name="msapplication-square70x70logo" content="<?php echo base_url('assets_min/icons'); ?>/mstile-70x70.png" />
+	<meta name="msapplication-square150x150logo" content="<?php echo base_url('assets_min/icons'); ?>/mstile-150x150.png" />
+	<meta name="msapplication-wide310x150logo" content="<?php echo base_url('assets_min/icons'); ?>/mstile-310x150.png" />
+	<meta name="msapplication-square310x310logo" content="<?php echo base_url('assets_min/icons'); ?>/mstile-310x310.png" />
+
 </head>
 <body class="wrapper">
 	<div id="superContainer animted fadeIn">
@@ -44,7 +73,7 @@
 						<div>
 									<?php echo $about->content->body; ?>
 						</div>
-						<div class="cta-container"><a href="#" class="more">Read the FAQ's</a></div>
+						<div class="cta-container"><a href="#" data-featherlight="faq" class="more">Read the FAQ's</a></div>
 					</section>
 				</section>
 			</div>
@@ -56,14 +85,18 @@
 					</div>
 					<section>
 						<div class="gallery">
-						<?php foreach ($gallery as $g): ?>
+						<?php foreach ($gallery as $k=>$g): if($k < $this->config->item('gallery_count')):?>
 							<div class="gallery-item">
-								<img class="gallery-image" src="<?php echo $g->content->photos[0]->alt_sizes[2]->url; ?>">
-								<p class="gallery-caption"><?php echo strip_tags($g->content->caption); ?></p>
+								<a href="<?php echo $g->content->photos[0]->alt_sizes[0]->url; ?>" class="gallery">
+									<img class="gallery-image" src="<?php echo $g->content->photos[0]->alt_sizes[2]->url; ?>" alt="<?php echo strip_tags($g->content->caption); ?>" />
+									<p class="gallery-caption"><?php echo strip_tags($g->content->caption); ?></p>
+								</a>
 							</div>
-						<?php endforeach; ?>
+						<?php else: ?>
+								<a href="<?php echo $g->content->photos[0]->alt_sizes[0]->url; ?>" class="gallery"><img src="#" title="<?php echo strip_tags($g->content->caption); ?>" /></a>
+						<?php endif; endforeach; ?>
 						</div>
-						<div class="cta-container"><a href="#" class="more">Check Out The Menu</a></div>
+						<div class="cta-container"><a href="#" data-featherlight="menu" class="more" >Check Out The Menu</a></div>
 					</section>
 				</section>
 			</div>
@@ -152,35 +185,7 @@
 			</div>
 		</div>
 
-		<h1>Menu Items</h1>
-		<?php foreach($menu as $post){
-			$this->load->view('posts/'.$post->post_type, array('post'=>$post, 'category'=>'menu'));
-		}?>
-
 	</body>
 	<link href='http://fonts.googleapis.com/css?family=Arapey:400italic,400' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets_min/js/frontend.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		$('#fullpage').fullpage({
-			autoScrolling: false,
-			anchors: ['lvk', 'about', 'gallery','news','contact'],
-			animateAnchor: true,
-			easing: 'easeInOutCubic',
-			menu: '#nav',
-			scrollingSpeed: 450,
-			paddingBottom: '100px'
-		});
-		$('input[type=radio][name=enquiry_type]').change(function() {
-        	$('.extra-info').addClass('hidden');
-        	$('#'+this.value+'-only').removeClass('hidden');
-    	});
-    	$('#contact_form').ajaxForm(function(){
-    		$('#contact_form').slideUp(800,function(){
-				$('html,body').animate({scrollTop: $(this).offset().top - 100}, 800);
-    			$(this).html('<h2>Thank you for your enquiry, we will contact you shortly.</h2>').slideDown(800);
-    		})
-    	})
-	});
-	</script>
 </html>

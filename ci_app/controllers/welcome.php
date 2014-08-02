@@ -46,10 +46,29 @@ class Welcome extends My_Controller {
 
 		$this->data['menu'] = $this->blog_model->get_posts(0,4,0);
 
-
 		$this->load->vars($this->data);
 
 		$this->load->view('home');
+	}
+
+	public function menu(){
+		$this->load->model('blog_model');
+
+		$this->data['menu'] = $this->blog_model->get_posts(0,4,0);
+
+		$this->load->vars($this->data);
+
+		$this->load->view('menu');
+	}
+
+	public function faq(){
+		$this->load->model('blog_model');
+		
+		$this->data['faq'] = $this->blog_model->get_posts(0,5,0);
+
+		$this->load->vars($this->data);
+
+		$this->load->view('faq');
 	}
 
 	public function contact(){
