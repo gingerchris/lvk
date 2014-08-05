@@ -62,6 +62,7 @@
 }
 .section.table, .slide.table {
     display: table;
+    table-layout: fixed;
     width: 100%;
 }
 .tableCell {
@@ -95,6 +96,13 @@
   }
   &.first, &.last {
     border: none;
+  }
+  img{
+    max-width:100%;
+    height:auto;
+  }
+  iframe{
+    max-width:100%;
   }
   section {
     @include clearfix;

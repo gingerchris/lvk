@@ -7,8 +7,8 @@
 **/
 @media all {
 	.featherlight {
+		
 		display: none;
-
 		/* dimensions: spanning the background from edge to edge */
 		position:fixed;
 		top: 0; right: 0; bottom: 0; left: 0;
@@ -42,6 +42,9 @@
 	}
 
 	.featherlight .featherlight-content {
+		max-width:100%;
+		@include box-sizing(border-box);
+
 		/* make content container for positioned elements (close button) */
 		position: relative;
 

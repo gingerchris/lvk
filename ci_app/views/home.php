@@ -10,6 +10,8 @@
 	<meta property="og:image" content="<?php echo base_url('assets_min/img/1.jpg'); ?>"/>
 	<meta property="og:description" content="Little Vanilla Kitchen specialises in making delicious, beautiful cakes."/>
 
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+
 	<link href="<?php echo base_url(); ?>assets_min/css/styles.css" rel="stylesheet" type="text/css" media="all"/>
 	<link href="<?php echo base_url(); ?>assets_min/css/foundation-icons.min.css" rel="stylesheet" type="text/css" media="all"/>
 
