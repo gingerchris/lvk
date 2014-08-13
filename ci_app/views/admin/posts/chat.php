@@ -7,7 +7,6 @@
             <div class="col-md-12">
                 <?php $this->load->view('admin/buttons',array('id'=>$post->post_id)); ?>
 
-                <h2>“<?php echo $post->content->title; ?>”</h2>
                 <?php foreach($post->content->dialogue as $chat): ?>
                     <p><strong><?php echo $chat->label;?></strong> <?php echo $chat->phrase; ?></p>
                 <?php endforeach; ?>

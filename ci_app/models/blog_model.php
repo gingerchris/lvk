@@ -50,6 +50,12 @@ class Blog_model extends CI_model {
 
 	}
 
+	public function delete_post($id){
+		$this->db->delete('blog',array('post_id'=>$id));
+		$this->db->delete('blog_tags',array('post_id'=>$id));
+		return true;
+	}
+
 	public function fetch_posts()
 	{
 		//Fetch the latest posts from Tumblr

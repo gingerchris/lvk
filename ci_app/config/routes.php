@@ -51,6 +51,7 @@ $route['admin/blog/(:num)/page/(:num)'] = "admin/blog/index/$1/$2";
 $route['admin/blog/page/(:num)'] = "admin/blog/index/0/$1";
 $route['admin/blog/update/(:num)'] = "admin/blog/updateBlog/$1";
 $route['admin/blog/update/post/(:any)'] = "admin/blog/updatePost/$1";
+$route['admin/blog/delete/post/(:any)'] = "admin/blog/deletePost/$1";
 
 
 /* End of file routes.php */

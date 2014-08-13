@@ -85,6 +85,10 @@ class Blog extends My_Controller {
 
 	}
 
+	public function deletePost($post_id){
+		echo $this->blog_model->delete_post($post_id);
+	}
+
 }
 
 /* End of file welcome.php */
