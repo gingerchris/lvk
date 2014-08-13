@@ -177,9 +177,9 @@
 							<h2>Find us online</h2>
 						</div>
 						<ul class="social-links">
-							<li><a href="#"><i class="fi-social-twitter"></i></a></li>
-							<li><a href="#"><i class="fi-social-facebook"></i></a></li>
-							<li><a href="#"><i class="fi-mail"></i></a></li>
+							<li><a href="http://twitter.com/LittleVanillaK" target="_blank"><i class="fi-social-twitter"></i></a></li>
+							<li><a href="http://facebook.com/" target="_blank"><i class="fi-social-facebook"></i></a></li>
+							<li><a href="mailto:claudia@littlevanillakitchen.co.uk"><i class="fi-mail"></i></a></li>
 						</ul>
 					</section>
 				</div>

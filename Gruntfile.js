@@ -62,7 +62,8 @@ module.exports = function (grunt) {
                 },
                 files:{
                     'assets_min/css/admin.css' : 'assets/sass/admin.scss',
-                    'assets_min/css/styles.css' : 'assets/sass/styles.scss'
+                    'assets_min/css/styles.css' : 'assets/sass/styles.scss',
+                    'assets_min/css/tumblr.css' : 'assets/sass/tumblr.scss'
                 }
             },
             frontend: {
