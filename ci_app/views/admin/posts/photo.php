@@ -20,16 +20,12 @@ default:
 	</div>
 	<div class="panel-body jumbotron">
 		<div class="row">
-		    <div class="col-md-9">
+		    <div class="col-md-12">
+		    	<?php $this->load->view('admin/buttons',array('id'=>$post->post_id)); ?>
+
 				<img src="<?php echo $post->content->photos[0]->alt_sizes[1]->url; ?>" alt="<?php echo $post->content->caption; ?>" />
 				<div class="caption"><?php echo $post->content->caption; ?></div>
-		    </div>
-		    <div class="col-md-3">
-		        <div class="btn-group pull-right">
-		            <button type="button" class="btn btn-primary post-update" data-post-id="<?php echo $post->post_id; ?>">Update <span class="glyphicon glyphicon-refresh"></span></button>
-		            <a href="http://www.tumblr.com/edit/<?php echo $post->post_id; ?>" target="_blank" class="btn btn-default">Edit <span class="glyphicon glyphicon-pencil"></span></a>
-		        </div>
-		    </div>
+		    </div>		    
 		</div>
 		<?php $this->load->view('admin/posts/tags',array('post'=>$post)); ?>
 	</div>
