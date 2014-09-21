@@ -3,6 +3,9 @@
   width: 100%;
   margin-bottom: 1.5em;
 }
+.gallery-row{
+  @include clearfix;
+}
 .gallery-item {
   @include clearfix;
   @include box-sizing(border-box);

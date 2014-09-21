@@ -87,16 +87,22 @@
 					</div>
 					<section>
 						<div class="gallery">
+							<div class="gallery-row">
 						<?php foreach ($gallery as $k=>$g): if($k < $this->config->item('gallery_count')):?>
-							<div class="gallery-item">
-								<a href="<?php echo $g->content->photos[0]->alt_sizes[0]->url; ?>" class="gallery">
-									<img class="gallery-image" src="<?php echo $g->content->photos[0]->alt_sizes[2]->url; ?>" alt="<?php echo strip_tags($g->content->caption); ?>" />
-									<p class="gallery-caption"><?php echo strip_tags($g->content->caption); ?></p>
-								</a>
-							</div>
-						<?php else: ?>
-								<a href="<?php echo $g->content->photos[0]->alt_sizes[0]->url; ?>" class="gallery"><img src="#" title="<?php echo strip_tags($g->content->caption); ?>" /></a>
+							<?php if($k%2 == 0 && $k!=0): ?>
+								</div>
+								<div class="gallery-row">
+							<?php endif; ?>
+								<div class="gallery-item">
+									<a href="<?php echo $g->content->photos[0]->alt_sizes[0]->url; ?>" class="gallery">
+										<img class="gallery-image" src="<?php echo $g->content->photos[0]->alt_sizes[2]->url; ?>" alt="<?php echo strip_tags($g->content->caption); ?>" />
+										<?php if(strlen(strip_tags($g->content->caption)) > 0): ?>
+											<p class="gallery-caption"><?php echo strip_tags($g->content->caption); ?></p>
+										<?php endif; ?>
+									</a>
+								</div>
 						<?php endif; endforeach; ?>
+							</div>
 						</div>
 						<div class="cta-container"><a href="#" data-featherlight="menu" class="more" >Check Out The Menu</a></div>
 					</section>

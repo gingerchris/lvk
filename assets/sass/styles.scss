@@ -74,7 +74,9 @@ body {
     font-style: italic;
     text-transform: capitalize;
     background-color: $white;
-
+    @media (max-width: 700px) {
+      font-size:1em;
+    }
   }
  }
 
@@ -101,3 +103,6 @@ nav{
   min-width:600px;
 }
 
+blockquote{
+  margin:-10px 0 0 20px;
+}

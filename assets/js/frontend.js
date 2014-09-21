@@ -35,4 +35,7 @@ $(document).ready(function() {
 	    openSpeed: 300,
 		afterOpen : addCaption
 	});
+	$('section.content').find('p img').each(function(){
+		$(this).parents('p').css('text-align','center');
+	});
 });
