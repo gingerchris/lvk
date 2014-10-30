@@ -38,6 +38,7 @@
 
 </head>
 <body class="wrapper">
+	<img src="<?php echo base_url(); ?>assets_min/img/lvk-icon.png" alt="Little Vanilla Kitchen" class="mobileLogo"/>
 	<div id="superContainer animted fadeIn">
 		<div id="fullpage">
 			<nav class="nav" id="nav">

@@ -63,7 +63,10 @@ body {
   text-align: center;
   position: relative;
   z-index: 10; 
-  top: 36px; 
+  top:300px;
+  @media (min-width:401px){
+    top: 36px; 
+  }
 
   .strapline {
     display: inline-block;
@@ -108,7 +111,27 @@ blockquote{
 }
 
 #section1 img{
-  float:right;
-  margin-left:20px;
-  max-width:400px;
+  text-align:center;
+  max-width:80%;
+}
+
+.mobileLogo{
+  position:fixed;
+  bottom:100px;
+  left:50%;
+  margin-left:-30px;
+  width:60px;
+  z-index:1984;
+}
+
+@media (min-width: 401px) {
+  #section1 img{
+    max-width:50%;
+    margin-right:20px;
+    float:left;
+  }
+
+  .mobileLogo{
+    display:none;
+  }
 }
