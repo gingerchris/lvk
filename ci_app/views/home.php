@@ -44,9 +44,12 @@
 				<ul>
 					<li data-menuanchor="about"><a href="#about">About</a></li>
 					<li data-menuanchor="gallery"><a href="#gallery">Gallery</a></li>
+					<li><a href="#" data-featherlight="menu">Menu</a></li>
 					<li data-menuanchor="lvk" class="logo"><a href="#lvk"><img src="<?php echo base_url(); ?>assets_min/img/lvk-logo.png"></a></li>
+					
 					<li data-menuanchor="news"><a href="#news">News</a></li>
 					<li data-menuanchor="contact"><a href="#contact">Contact</a></li>
+					<li><a href="#" data-featherlight="faq">FAQs</a></li>
 				</ul>
 			</nav>
 

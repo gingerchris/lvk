@@ -119,6 +119,7 @@
     .cta-container {
       @include clearfix;
       text-align: center;
+      clear:both;
     }
 
   }

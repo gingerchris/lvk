@@ -7,6 +7,7 @@ class Blog extends My_Controller {
 	    $this->data['admin'] 	= true;
 	    $this->data['page'] 	= "blog";
 
+	    $this->load->helper('array');
 	    $this->load->model('blog_model');
 	    $this->load->config('admin');
 	}
